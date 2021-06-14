@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>フリチケ</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  </head>
+
+  <body>
+        <header>
+            <div id="logo">
+                <a href="/" class="header-logo">
+                  <img class="logo-image" src="https://d2v9k5u4v94ulw.cloudfront.net/small_light(dw=1200,dh=630,da=s,ds=s,cw=1200,ch=630,cc=FFFFFF)/assets/images/4312739/original/ce3d9288-2ec6-4917-9d09-cdf6b9a46684?1574700803">
+                </a>
+            </div>
+                <div class="header-list">
+                <% if @current_user %>
+                    <ul>
+                        <li><%= link_to(@current_user.name ,"/users/#{@current_user.id}") %></li>
+                        <li><%= link_to("ログアウト","/logout",{method: "post"}) %></li>
+                        <li><%= link_to("メッセージ履歴","/messages") %></li>
+                        <% if @current_user.admin %>
+                            <li><%= link_to("管理画面へ","/admin") %></li>
+                        <% else %>
+                            <li><%= link_to("オファー履歴","/offers") %></li>
+                        <% end %>
+                        <li><%= link_to("利用マニュアル","/manual") %></li>
+                    </ul>
+                <% else %>
+                    <ul>
+                        <li><%= link_to("新規登録","/signup") %></li>
+                        <li><%= link_to("ログイン","/login") %></li>
+                        <li><%= link_to("メッセージ履歴","/messages") %></li>
+                        <li><%= link_to("オファー履歴","offers") %></li>
+                        <li><%= link_to("利用マニュアル","/manual") %></li>
+                    </ul>
+                <% end %>
+                </div>
+        </header>
+        <% if flash[:notice] %>
+            <div class="flash">
+                <%= flash[:notice] %>
+            </div>
+        <% end %>
+    <%= yield %>
+        <footer>
+            <a href="/" class="footer-logo">フリチケ
+              <br><span class="footer-sub-title">powered by Addrust.co.ltd</span>
+            </a>
+            <div class="footer-list">
+                <ul>
+                    <l><a href="http://www.addrust.jp/">会社概要</a></l>
+                    <li><a href="http://www.addrust.jp/recruit/">採用</a></li>
+                    <lis><a href="http://www.addrust.jp/contact/">お問い合わせ</a></lis>
+                </ul>
+            </div>
+        </footer>
+  </body>
+</html>

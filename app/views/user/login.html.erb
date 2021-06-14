@@ -1,0 +1,15 @@
+        <div id="container">
+            <div class="login-container">
+                <%= form_tag("/login") do %>
+                    <div class="login-input">
+                        <h2>ログイン</h2>
+                        <p>メールアドレス</p>
+                        <input class="user-login" id="userid" name="email" type="text" placeholder="メールアドレス" value="<%= @email %>">
+                        <p>パスワード</p>
+                        <input class="user-login" id="password" name="password" type="password" placeholder="パスワード">
+                        <input type="submit" class="long-btn login-submit" value="ログイン">
+                        <%= link_to("パスワードを忘れた方はこちら","/passreset") %>
+                    </div>
+                <% end %>
+            </div>
+        </div>

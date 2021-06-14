@@ -1,0 +1,16 @@
+ <div id="container">
+    <div class="login-container">
+        <%= form_tag("/passreset") do %>
+            <div class="login-input">
+                <h2>パスワード再設定</h2>
+                <p>
+                    パスワードを忘れた場合は、ご登録いただいているメールアドレスへ、パスワード再設定URLをお送りします。
+                    下記へご登録メールアドレスをご入力ください。
+                </p>
+                <p>メールアドレス</p>
+                <input id="userid" name="email" type="text" placeholder="メールアドレス" value="<%= @email %>">
+                <input type="submit" class="long-btn login-submit" value="送信">
+            </div>
+        <% end %>
+    </div>
+</div>

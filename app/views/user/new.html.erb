@@ -1,0 +1,24 @@
+<div id="container">
+    <div class="signup">
+        <div class="login-container">
+            <%= form_tag("/create") do %>
+                <div class="login-input">
+                    <h2>企業情報入力</h2>
+                    <p>企業名</p>
+                    <input class="user-signup" id="username" name="name" type="text" placeholder="企業名" value="<%= @name %>">
+                    <p>メールアドレス</p>
+                    <input class="user-signup" id="userid" name="email" type="text" placeholder="メールアドレス" value="<%= @email %>">
+                    <p>パスワード</p>
+                    <input class="user-signup" id="password" name="password" type="password" placeholder="パスワード">
+                    <p>パスワードの確認</p>
+                    <input class="user-signup" id="password" name="password" type="password" placeholder="パスワードの確認">
+                    <p>担当者名</p>
+                    <input class="user-signup" id="charge" name="charge" type="text" placeholder="担当者名">
+                    <p>電話番号</p>
+                    <input class="user-signup" id="phone" name="phone" type="text" placeholder="電話番号">
+                    <input type="submit" class="long-btn login-submit" value="登録">
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
